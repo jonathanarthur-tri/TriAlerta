@@ -1,0 +1,6 @@
+.center_container{
+    -fx-spacing: 20;
+}
+.center_container Button{
+    -fx-padding: 20;
+}

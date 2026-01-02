@@ -1,0 +1,8 @@
+.configuration_container{
+    -fx-padding: 20;
+    -fx-spacing: 20;
+}
+
+.configuration_container Button{
+    -fx-padding: 20;
+}

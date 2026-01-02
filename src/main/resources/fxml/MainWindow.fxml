@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" stylesheets="@../styles/MainWIndow.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trilogi.trialerta.controllers.MainWindowController">
+   <bottom>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <Button fx:id="configurations_btn" mnemonicParsing="false" text="Configuration">
+            <graphic>
+               <FontAwesomeIconView glyphName="GEAR" />
+            </graphic>
+         </Button>
+      </ToolBar>
+   </bottom>
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="center_container" BorderPane.alignment="CENTER">
+         <Button fx:id="start_restart_btn" mnemonicParsing="false" text="Start / Restart">
+            <graphic>
+               <FontAwesomeIconView glyphName="PLAY" fx:id="playBtn_Icon" />
+            </graphic>
+         </Button>
+         <Button fx:id="options_btn" mnemonicParsing="false" text="Options">
+            <graphic>
+               <FontAwesomeIconView glyphName="SLIDERS" fx:id="optionsBtn_Icon"/>
+            </graphic>
+         </Button>
+      </HBox>
+   </center>
+</BorderPane>
