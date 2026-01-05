@@ -11,6 +11,7 @@ module TriAlerta {
     requires java.desktop;
     requires org.controlsfx.controls;
     requires com.dustinredmond.fxtrayicon;
+    requires com.fasterxml.jackson.databind;
 
 
     opens com.trilogi.trialerta to javafx.fxml;
