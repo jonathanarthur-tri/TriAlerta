@@ -1,6 +1,5 @@
 package com.trilogi.trialerta.services;
 
-
 import com.azure.core.credential.AccessToken;
 import com.azure.core.credential.TokenRequestContext;
 import com.azure.identity.DeviceCodeCredential;
