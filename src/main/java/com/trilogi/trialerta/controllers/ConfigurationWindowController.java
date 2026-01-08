@@ -79,7 +79,7 @@ public class ConfigurationWindowController implements Initializable {
         }
 
         try{
-            // THIS WAS MISSING - Actually save the configuration!
+
             configurationService.saveConfig(configProps);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

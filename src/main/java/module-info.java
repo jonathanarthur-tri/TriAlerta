@@ -16,5 +16,7 @@ module TriAlerta {
 
     opens com.trilogi.trialerta to javafx.fxml;
     opens com.trilogi.trialerta.controllers to javafx.fxml;
+    opens com.trilogi.trialerta.services to com.fasterxml.jackson.databind;
+
     exports com.trilogi.trialerta;
 }

@@ -221,6 +221,10 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>com.trilogi.trialerta/com.trilogi.trialerta.Main</mainClass>
+                            <options>
+                                <option>--add-opens=java.base/java.lang=ALL-UNNAMED</option>
+                                <option>--add-opens=com.trilogi.trialerta/com.trilogi.trialerta.services=ALL-UNNAMED</option>
+                            </options>
                         </configuration>
                     </execution>
                 </executions>
@@ -249,6 +253,7 @@
                     <javaOptions>
                         <option>-Dfile.encoding=UTF-8</option>
                         <option>--add-opens=java.base/java.lang=ALL-UNNAMED</option>
+                        <option>--add-opens=com.trilogi.trialerta/com.trilogi.trialerta.services=ALL-UNNAMED</option>
                     </javaOptions>
                 </configuration>
             </plugin>
@@ -329,6 +334,14 @@
                         <artifactId>jpackage-maven-plugin</artifactId>
                         <configuration>
                             <linuxShortcut>true</linuxShortcut>
+                            <javaOptions>
+                                <option>
+                                    -Dprism.order=sw
+                                </option>
+                                <option>
+                                    -Djdk.gtk.version=2
+                                </option>
+                            </javaOptions>
                         </configuration>
                     </plugin>
                 </plugins>

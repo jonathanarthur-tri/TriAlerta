@@ -49,6 +49,7 @@ public class MainWindowController implements Initializable {
     private FXTrayIcon fxTrayIcon;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        start_restart_btn.textProperty().set("START");
         configurationService = getConfigurationService();
         mailService = getMailService();
 
@@ -73,6 +74,8 @@ public class MainWindowController implements Initializable {
             }
 
             playBtn_Icon.setGlyphName("PLAY");
+            start_restart_btn.textProperty().set("RESTART");
+
             start_restart_btn.setTooltip(new Tooltip("Start Monitoring"));
 
             showAlert(Alert.AlertType.INFORMATION, "Monitoring Paused", "Monitoring has been paused.");
@@ -81,6 +84,7 @@ public class MainWindowController implements Initializable {
 
         // Start monitoring
         playBtn_Icon.setGlyphName("PAUSE");
+        start_restart_btn.setText("PAUSE / RESTART");
         start_restart_btn.setTooltip(new Tooltip("Pause Monitoring"));
 
 
@@ -152,90 +156,6 @@ public class MainWindowController implements Initializable {
         alert.showAndWait();
     }
 
-/*
-    private void initSystemTray() {
-        if (!SystemTray.isSupported()) {
-            System.out.println("System tray not supported");
-            return;
-        }
-
-        try {
-            SystemTray tray = SystemTray.getSystemTray();
-
-            // Load tray icon image
-            Image image = Toolkit.getDefaultToolkit().getImage(
-                    getClass().getResource("/mail.png")
-            );
-
-            PopupMenu popup = new PopupMenu();
-
-            // Add "Open" option - explicitly use AWT MenuItem
-            java.awt.MenuItem openItem = new java.awt.MenuItem("Open");
-            openItem.addActionListener(e -> Platform.runLater(() -> {
-                Stage stage = Model.getInstance().getViewFactory().getMainStage();
-                if (stage != null) {
-                    stage.show();
-                    stage.toFront();
-                    stage.requestFocus();
-                }
-            }));
-
-            // Add "Exit" option - explicitly use AWT MenuItem
-            java.awt.MenuItem exitItem = new java.awt.MenuItem("Exit");
-            exitItem.addActionListener(e -> {
-                shutdown();
-                Platform.exit();
-                System.exit(0);
-            });
-
-            popup.add(openItem);
-            popup.addSeparator();
-            popup.add(exitItem);
-
-            trayIcon = new TrayIcon(image, "TriAlert", popup);
-            trayIcon.setImageAutoSize(true);
-            trayIcon.setToolTip("TriAlert Running");
-
-            // Double click to open
-            trayIcon.addActionListener(e -> Platform.runLater(() -> {
-                Stage stage = Model.getInstance().getViewFactory().getMainStage();
-                if (stage != null) {
-                    stage.show();
-                    stage.toFront();
-                    stage.requestFocus();
-                }
-            }));
-
-            tray.add(trayIcon);
-        } catch (Exception e) {
-            System.err.println("Tray initialization failed: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-    private void showNotification(String title, String message) {
-        // Try system tray first
-        if (trayIcon != null) {
-            trayIcon.displayMessage(title, message, TrayIcon.MessageType.INFO);
-        } else {
-            System.out.println("NOTIFICATION: " + title + " - " + message);
-        }
-
-        // Also show JavaFX notification (requires ControlsFX library)
-        // If you don't have ControlsFX, comment out this block
-        try {
-            Notifications.create()
-                    .title(title)
-                    .darkStyle()
-                    .text(message)
-                    .hideAfter(Duration.minutes (10))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showInformation();
-        } catch (Exception e) {
-
-            System.out.println("NOTIFICATION: " + title + " - " + message);
-        }
-    }
-*/
 
     public void initAfterStageSet() {
         initSystemTray();
